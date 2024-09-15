@@ -53,7 +53,7 @@
     ]
   },
   "devDependencies": {
-    "@playwright/test": "^1.46.0",
+    "@playwright/test": "^1.47.1",
     "@types/lodash": "^4.17.7",
     "@types/react-helmet": "^6.1.11",
     "binary-loader": "^0.0.1",
