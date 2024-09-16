@@ -50,5 +50,5 @@ I had the same problems to account for loading errors. If I had managde to make 
 This is the resut of running the tests I have finally written:
 
 <div>
-  <img width="210" src="./.assets/plsy-right-tests-report.jpg" alt="Playwright tests report" title="Playwright tests report"/>
+  <img width="210" src="./.assets/playright-tests-report.jpg" alt="Playwright tests report" title="Playwright tests report"/>
 </div>
