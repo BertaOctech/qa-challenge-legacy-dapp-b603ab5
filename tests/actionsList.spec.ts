@@ -4,7 +4,6 @@ test.beforeEach(async ({ page }) => {
   await page.goto('/');
 });
 
-
 test.describe('Actions List', () => {
 
   test('Page Title', async ({ page }) => {
@@ -25,6 +24,7 @@ test.describe('Actions List', () => {
     const listItems = page.locator('ul[class^="ActionsList_main"] > li');
     const itemCount = await listItems.count();
     const maxItems = 10;
+
     if (itemCount > 0) {
       // Expects there are at most 10 items
       await expect(itemCount).toBeLessThanOrEqual(maxItems);
@@ -36,7 +36,6 @@ test.describe('Actions List', () => {
       await expect(noListItemsElement).toHaveText('No actions found');
     }
   });
-
 
   test('Ensure all the list components are rendered as expected', async ({ page }) => {
     // Define the required components
@@ -62,6 +61,7 @@ test.describe('Actions List', () => {
         expectedText: 'Load More'
       }
     };
+    
     // Verify the components are rendered as expected
     for (const [key, value] of Object.entries(requiredTexts)) {
       const element = await page.locator(value.locator);

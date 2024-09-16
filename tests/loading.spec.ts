@@ -1,4 +1,4 @@
-import { test, expect , request } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
   await page.goto('/');
@@ -44,6 +44,7 @@ test.describe('Loading issues', () => {
     await loadMoreButton.scrollIntoViewIfNeeded();
     await expect(loadMoreButton).toBeVisible();
     await loadMoreButton.click();
+
     // Verify the spinner is visible
     const loadingSpinner = await page.locator('div[class^="loadingSpinner"] ');
     await loadingSpinner.scrollIntoViewIfNeeded();

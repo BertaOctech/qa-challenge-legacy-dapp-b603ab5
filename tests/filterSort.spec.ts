@@ -41,7 +41,9 @@ test.describe('Filtering and Sorting', () => {
     await NormandyOption.click();
     await expect(NormandyOption).not.toBeVisible();
 
-    // Check all the items are of type PAYMENT
+    // Check all the items are of team Normandy
+    // FIXME: I am being careful to use the DOM item with the event attached but 
+    // the list is not updated.
     const listItems = page.locator('ul[class^="ActionsList_main"] > li');
     for (let i = 0; i < await listItems.count(); i++) {
       const item = listItems.nth(i);
@@ -82,13 +84,13 @@ test.describe('Filtering and Sorting', () => {
 
       // Sort items by date	oldest first
       const button = await page.getByRole('button', { name: 'Sort Filter' });
-      await expect(button).toHaveText('Sort Filter');    
-      // Order by Oldest actions first
+      await expect(button).toHaveText('Sort Filter');   
       await button.click();
       const oldestOption = await page.getByRole('option', { name: 'Oldest' });
       await expect(oldestOption).toBeVisible();
       await oldestOption.click();
       await expect(oldestOption).not.toBeVisible();
+
       // Wait for the list to be ready
       // FIXME: The list is not being updated. Manually the list is sorted
       await page.waitForSelector('ul[class^="ActionsList_main"]');        
@@ -107,6 +109,7 @@ test.describe('Filtering and Sorting', () => {
       await expect(newestOption).toBeVisible();
       await newestOption.click();
       await expect(newestOption).not.toBeVisible();
+
       // Wait for the list to be ready
       // FIXME: The list is not being updated. Manually the list is sorted
       await page.waitForSelector('ul[class^="ActionsList_main"]');        
